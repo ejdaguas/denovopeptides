@@ -30,6 +30,9 @@ rmsd_\*.in	&emsp;	CPPTRAJ script for RMSD analysis<br>
 
 ## Output files
 ### MD
+\*\_min2\_mmp.out &emsp; Minimization step 1 MD output file <br>
+\*\_min2b\_mmp.out &emsp; Minimization step 2 MD output file <br>
+\*\_heat2\_mmp.out &emsp; Heating MD output file <br>
 \*\_eq3_X.outY &emsp; Production MD output file. Order is denoted by X followed by Y. E.g. eq3.out -> eq3_2.out -> eq3_3.outa -> eq3_3.outb
 
 ### PCA
