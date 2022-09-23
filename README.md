@@ -18,31 +18,31 @@ MMPBSA.in	&emsp;	Input file to MMPBSA.py, see notes<br>
 pcascript_\*.ptraj	&emsp;CPPTRAJ script for PCA<br>
 process_mdout.perl	&emsp;PERL script to process output MD files<br>
 rmsd_\*.in	&emsp;	CPPTRAJ script for RMSD analysis<br>
-\*_cpx.prmtop		&emsp;Amber trajectory of complex alone, for MMPBSA<br>
-\*_lig.prmtop	&emsp;	Amber trajectory of ligand/peptide alone, for MMPBSA<br>
-\*_rec.prmtop	&emsp;	Amber trajectory of receptor/CCL2 alone, for MMPBSA<br>
-\*_sol.pdb	&emsp;	PDB of complex in solution<br>
-\*_sol.prmtop	&emsp;	Amber PARM of complex in solution<br>
-\*_sol.crd&emsp;		Amber trajectory of complex in solution<br>
+\*\_cpx.prmtop		&emsp;Amber trajectory of complex alone, for MMPBSA<br>
+\*\_lig.prmtop	&emsp;	Amber trajectory of ligand/peptide alone, for MMPBSA<br>
+\*\_rec.prmtop	&emsp;	Amber trajectory of receptor/CCL2 alone, for MMPBSA<br>
+\*\_sol.pdb	&emsp;	PDB of complex in solution<br>
+\*\_sol.prmtop	&emsp;	Amber PARM of complex in solution<br>
+\*\_sol.crd&emsp;		Amber trajectory of complex in solution<br>
 <br>
 ---OUTPUT FILES---<br>
 --PCA--<br>
-\*_pca.vmd &emsp;	VMD visualization file of PCA <br>
+\*\_pca.vmd &emsp;	VMD visualization file of PCA <br>
 \*-modeX.nc&emsp;	NetCDF file with PCA eigenvector X<br>
-\*_nmwiz.nmd &emsp;	PCA file to be used with NMWiz in VMD<br>
+\*\_nmwiz.nmd &emsp;	PCA file to be used with NMWiz in VMD<br>
 <br>
 --H-BONDS and CONTACTS--<br>
-avgbfactor_\*.txt	&emsp;	Chimera output of average B-factor per-residue<br>
-\*_contacts.pyc	&emsp;	Chimera map of intermolecular contacts<br>
-\*_hbond4.dat	&emsp;	List of # of H-bonds per frame<br>
+avgbfactor\_\*.txt	&emsp;	Chimera output of average B-factor per-residue<br>
+\*\_contacts.pyc	&emsp;	Chimera map of intermolecular contacts<br>
+\*\_hbond4.dat	&emsp;	List of # of H-bonds per frame<br>
 \*-all-residues-nn4.dat	&emsp;List of # of intermolecular contacts per frame<br>
 \*-nn-contacts4.dat	&emsp;List of most common intermolecular contacts<br>
 <br>
 --MMPBSA--<br>
-mmpbsa_\*_10frames.out&emsp;	Output of MMPBSA script, see notes<br>
+mmpbsa\_\*\_10frames.out&emsp;	Output of MMPBSA script, see notes<br>
 <br>
 --RMSD--<br>
-rmsd_\*.dat	&emsp;Output from CPPTRAJ rmsd_\*.in<br>
+rmsd\_\*.dat	&emsp;Output from CPPTRAJ rmsd\_\*.in<br>
 <br>
 ---NOTES---<br>
 MMPBSA analysis is performed using the following command (example for AEA2):<br>
