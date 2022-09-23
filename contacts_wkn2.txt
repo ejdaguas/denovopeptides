@@ -1,0 +1,17 @@
+parm wkn2_sol.prmtop
+trajin wkn2_eq3.nc
+trajin wkn2_eq3_2.nc
+trajin wkn2_eq3_3.nc
+reference wkn2_sol.pdb
+
+nativecontacts name NC1 :1-70&!@H= :71-77&!@H= \   
+   writecontacts wkn2-nn-contacts.dat \   
+   resout wkn2_resout_nn.dat noimage \   
+   distance 3.0 \
+   byresidue out wkn2-all-residues-nn.dat mindist maxdist \
+   series seriesout wkn2-nn-seriesout.dat \
+   savenonnative seriesnnout wkn2-nn-seriesnnout.dat \
+   nncontactpdb wkn2_nn_contacts.pdb skipnative
+run
+lifetime NC1[NN] out wkn2-lifetime-nn.dat
+run

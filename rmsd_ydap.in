@@ -1,0 +1,8 @@
+parm ydap_sol.prmtop
+trajin ydap_eq3.nc
+trajin ydap_eq3_2.nc
+trajin ydap_eq3_3.nc
+trajin ydap_eq3_4.nc
+
+rmsd :1-81&!@H= first out rmsd_ydap.dat perres perresout perres_ydap.dat perresmask &!(@H=) perrescenter
+run

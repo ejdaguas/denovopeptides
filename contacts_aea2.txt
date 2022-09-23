@@ -1,0 +1,18 @@
+parm aea2_sol.prmtop
+trajin aea2_eq3.nc
+trajin aea2_eq3_2.nc
+trajin aea2_eq3_3.nc
+trajin aea2_eq3_4.nc
+reference aea2_sol.pdb
+
+nativecontacts name NC1 :1-70&!@H= :71-81&!@H= \   
+   writecontacts aea2-nn-contacts4.dat \   
+   resout aea2_resout_nn4.dat noimage \   
+   distance 3.0 \
+   byresidue out aea2-all-residues-nn4.dat mindist maxdist \
+   series seriesout aea2-nn-seriesout4.dat \
+   savenonnative seriesnnout aea2-nn-seriesnnout4.dat \
+   nncontactpdb aea2_nn_contacts4.pdb skipnative
+run
+lifetime NC1[NN] out aea2-lifetime-nn4.dat
+run

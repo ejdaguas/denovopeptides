@@ -1,0 +1,9 @@
+parm aea2_sol.prmtop
+trajin aea2_eq3.nc
+trajin aea2_eq3_2.nc
+trajin aea2_eq3_3.nc
+trajin aea2_eq3_4.nc
+reference aea2_sol.pdb
+
+hbond :1-81 out aea2_hbond4.dat avgout aea2_hbondavg4.dat nointramol
+run

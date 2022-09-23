@@ -1,0 +1,1119 @@
+#!/usr/local/bin/vmd
+# VMD script written by save_state $Revision: 1.48 $
+# VMD version: 1.9.4a55
+set viewplist {}
+set fixedlist {}
+proc vmdrestoremymaterials {} {
+  set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome }
+  set mymlist [material list]
+  foreach mat $mlist {
+    if { [lsearch $mymlist $mat] == -1 } { 
+      material add $mat
+    }
+  }
+  material change ambient Opaque 0.000000
+  material change diffuse Opaque 0.650000
+  material change specular Opaque 0.500000
+  material change shininess Opaque 0.534020
+  material change mirror Opaque 0.000000
+  material change opacity Opaque 1.000000
+  material change outline Opaque 0.000000
+  material change outlinewidth Opaque 0.000000
+  material change transmode Opaque 0.000000
+  material change ambient Transparent 0.000000
+  material change diffuse Transparent 0.650000
+  material change specular Transparent 0.500000
+  material change shininess Transparent 0.534020
+  material change mirror Transparent 0.000000
+  material change opacity Transparent 0.300000
+  material change outline Transparent 0.000000
+  material change outlinewidth Transparent 0.000000
+  material change transmode Transparent 0.000000
+  material change ambient BrushedMetal 0.080000
+  material change diffuse BrushedMetal 0.390000
+  material change specular BrushedMetal 0.340000
+  material change shininess BrushedMetal 0.150000
+  material change mirror BrushedMetal 0.000000
+  material change opacity BrushedMetal 1.000000
+  material change outline BrushedMetal 0.000000
+  material change outlinewidth BrushedMetal 0.000000
+  material change transmode BrushedMetal 0.000000
+  material change ambient Diffuse 0.000000
+  material change diffuse Diffuse 0.620000
+  material change specular Diffuse 0.000000
+  material change shininess Diffuse 0.530000
+  material change mirror Diffuse 0.000000
+  material change opacity Diffuse 1.000000
+  material change outline Diffuse 0.000000
+  material change outlinewidth Diffuse 0.000000
+  material change transmode Diffuse 0.000000
+  material change ambient Ghost 0.000000
+  material change diffuse Ghost 0.000000
+  material change specular Ghost 1.000000
+  material change shininess Ghost 0.230000
+  material change mirror Ghost 0.000000
+  material change opacity Ghost 0.100000
+  material change outline Ghost 0.000000
+  material change outlinewidth Ghost 0.000000
+  material change transmode Ghost 0.000000
+  material change ambient Glass1 0.000000
+  material change diffuse Glass1 0.500000
+  material change specular Glass1 0.650000
+  material change shininess Glass1 0.530000
+  material change mirror Glass1 0.000000
+  material change opacity Glass1 0.150000
+  material change outline Glass1 0.000000
+  material change outlinewidth Glass1 0.000000
+  material change transmode Glass1 0.000000
+  material change ambient Glass2 0.520000
+  material change diffuse Glass2 0.760000
+  material change specular Glass2 0.220000
+  material change shininess Glass2 0.590000
+  material change mirror Glass2 0.000000
+  material change opacity Glass2 0.680000
+  material change outline Glass2 0.000000
+  material change outlinewidth Glass2 0.000000
+  material change transmode Glass2 0.000000
+  material change ambient Glass3 0.150000
+  material change diffuse Glass3 0.250000
+  material change specular Glass3 0.750000
+  material change shininess Glass3 0.800000
+  material change mirror Glass3 0.000000
+  material change opacity Glass3 0.500000
+  material change outline Glass3 0.000000
+  material change outlinewidth Glass3 0.000000
+  material change transmode Glass3 0.000000
+  material change ambient Glossy 0.000000
+  material change diffuse Glossy 0.650000
+  material change specular Glossy 1.000000
+  material change shininess Glossy 0.880000
+  material change mirror Glossy 0.000000
+  material change opacity Glossy 1.000000
+  material change outline Glossy 0.000000
+  material change outlinewidth Glossy 0.000000
+  material change transmode Glossy 0.000000
+  material change ambient HardPlastic 0.000000
+  material change diffuse HardPlastic 0.560000
+  material change specular HardPlastic 0.280000
+  material change shininess HardPlastic 0.690000
+  material change mirror HardPlastic 0.000000
+  material change opacity HardPlastic 1.000000
+  material change outline HardPlastic 0.000000
+  material change outlinewidth HardPlastic 0.000000
+  material change transmode HardPlastic 0.000000
+  material change ambient MetallicPastel 0.000000
+  material change diffuse MetallicPastel 0.260000
+  material change specular MetallicPastel 0.550000
+  material change shininess MetallicPastel 0.190000
+  material change mirror MetallicPastel 0.000000
+  material change opacity MetallicPastel 1.000000
+  material change outline MetallicPastel 0.000000
+  material change outlinewidth MetallicPastel 0.000000
+  material change transmode MetallicPastel 0.000000
+  material change ambient Steel 0.250000
+  material change diffuse Steel 0.000000
+  material change specular Steel 0.380000
+  material change shininess Steel 0.320000
+  material change mirror Steel 0.000000
+  material change opacity Steel 1.000000
+  material change outline Steel 0.000000
+  material change outlinewidth Steel 0.000000
+  material change transmode Steel 0.000000
+  material change ambient Translucent 0.000000
+  material change diffuse Translucent 0.700000
+  material change specular Translucent 0.600000
+  material change shininess Translucent 0.300000
+  material change mirror Translucent 0.000000
+  material change opacity Translucent 0.800000
+  material change outline Translucent 0.000000
+  material change outlinewidth Translucent 0.000000
+  material change transmode Translucent 0.000000
+  material change ambient Edgy 0.000000
+  material change diffuse Edgy 0.660000
+  material change specular Edgy 0.000000
+  material change shininess Edgy 0.750000
+  material change mirror Edgy 0.000000
+  material change opacity Edgy 1.000000
+  material change outline Edgy 0.620000
+  material change outlinewidth Edgy 0.940000
+  material change transmode Edgy 0.000000
+  material change ambient EdgyShiny 0.000000
+  material change diffuse EdgyShiny 0.660000
+  material change specular EdgyShiny 0.960000
+  material change shininess EdgyShiny 0.750000
+  material change mirror EdgyShiny 0.000000
+  material change opacity EdgyShiny 1.000000
+  material change outline EdgyShiny 0.760000
+  material change outlinewidth EdgyShiny 0.940000
+  material change transmode EdgyShiny 0.000000
+  material change ambient EdgyGlass 0.000000
+  material change diffuse EdgyGlass 0.660000
+  material change specular EdgyGlass 0.500000
+  material change shininess EdgyGlass 0.750000
+  material change mirror EdgyGlass 0.000000
+  material change opacity EdgyGlass 0.620000
+  material change outline EdgyGlass 0.620000
+  material change outlinewidth EdgyGlass 0.940000
+  material change transmode EdgyGlass 0.000000
+  material change ambient Goodsell 0.520000
+  material change diffuse Goodsell 1.000000
+  material change specular Goodsell 0.000000
+  material change shininess Goodsell 0.000000
+  material change mirror Goodsell 0.000000
+  material change opacity Goodsell 1.000000
+  material change outline Goodsell 4.000000
+  material change outlinewidth Goodsell 0.900000
+  material change transmode Goodsell 0.000000
+  material change ambient AOShiny 0.000000
+  material change diffuse AOShiny 0.850000
+  material change specular AOShiny 0.200000
+  material change shininess AOShiny 0.530000
+  material change mirror AOShiny 0.000000
+  material change opacity AOShiny 1.000000
+  material change outline AOShiny 0.000000
+  material change outlinewidth AOShiny 0.000000
+  material change transmode AOShiny 0.000000
+  material change ambient AOChalky 0.000000
+  material change diffuse AOChalky 0.850000
+  material change specular AOChalky 0.000000
+  material change shininess AOChalky 0.530000
+  material change mirror AOChalky 0.000000
+  material change opacity AOChalky 1.000000
+  material change outline AOChalky 0.000000
+  material change outlinewidth AOChalky 0.000000
+  material change transmode AOChalky 0.000000
+  material change ambient AOEdgy 0.000000
+  material change diffuse AOEdgy 0.900000
+  material change specular AOEdgy 0.200000
+  material change shininess AOEdgy 0.530000
+  material change mirror AOEdgy 0.000000
+  material change opacity AOEdgy 1.000000
+  material change outline AOEdgy 0.620000
+  material change outlinewidth AOEdgy 0.930000
+  material change transmode AOEdgy 0.000000
+  material change ambient BlownGlass 0.040000
+  material change diffuse BlownGlass 0.340000
+  material change specular BlownGlass 1.000000
+  material change shininess BlownGlass 1.000000
+  material change mirror BlownGlass 0.000000
+  material change opacity BlownGlass 0.100000
+  material change outline BlownGlass 0.000000
+  material change outlinewidth BlownGlass 0.000000
+  material change transmode BlownGlass 1.000000
+  material change ambient GlassBubble 0.250000
+  material change diffuse GlassBubble 0.340000
+  material change specular GlassBubble 1.000000
+  material change shininess GlassBubble 1.000000
+  material change mirror GlassBubble 0.000000
+  material change opacity GlassBubble 0.040000
+  material change outline GlassBubble 0.000000
+  material change outlinewidth GlassBubble 0.000000
+  material change transmode GlassBubble 1.000000
+  material change ambient RTChrome 0.000000
+  material change diffuse RTChrome 0.650000
+  material change specular RTChrome 0.500000
+  material change shininess RTChrome 0.530000
+  material change mirror RTChrome 0.700000
+  material change opacity RTChrome 1.000000
+  material change outline RTChrome 0.000000
+  material change outlinewidth RTChrome 0.000000
+  material change transmode RTChrome 0.000000
+}
+vmdrestoremymaterials
+# Atom selection macros
+atomselect macro at {resname ADE A THY T}
+atomselect macro acidic {resname ASP GLU}
+atomselect macro cyclic {resname HIS PHE PRO TRP TYR}
+atomselect macro acyclic {protein and not cyclic}
+atomselect macro aliphatic {resname ALA GLY ILE LEU VAL}
+atomselect macro alpha {protein and name CA}
+atomselect macro amino protein
+atomselect macro aromatic {resname HIS PHE TRP TYR}
+atomselect macro basic {resname ARG HIS LYS HSP}
+atomselect macro bonded {numbonds > 0}
+atomselect macro buried {resname ALA LEU VAL ILE PHE CYS MET TRP}
+atomselect macro cg {resname CYT C GUA G}
+atomselect macro charged {basic or acidic}
+atomselect macro hetero {not (protein or nucleic)}
+atomselect macro hydrophobic {resname ALA LEU VAL ILE PRO PHE MET TRP}
+atomselect macro small {resname ALA GLY SER}
+atomselect macro medium {resname VAL THR ASP ASN PRO CYS ASX PCA HYP}
+atomselect macro large {protein and not (small or medium)}
+atomselect macro neutral {resname VAL PHE GLN TYR HIS CYS MET TRP ASX GLX PCA HYP}
+atomselect macro polar {protein and not hydrophobic}
+atomselect macro purine {resname ADE A GUA G}
+atomselect macro pyrimidine {resname CYT C THY T URA U}
+atomselect macro surface {protein and not buried}
+atomselect macro lipid {resname DLPE DMPC DPPC GPC LPPC PALM PC PGCL POPC POPE}
+atomselect macro lipids lipid
+atomselect macro ion {resname AL BA CA CAL CD CES CLA CL CO CS CU CU1 CUA HG IN IOD K LIT MG MN3 MO3 MO4 MO5 MO6 NA NAW OC7 PB POT PT RB SOD TB TL WO4 YB ZN ZN1 ZN2}
+atomselect macro ions ion
+atomselect macro sugar {resname AGLC}
+atomselect macro solvent {not (protein or sugar or nucleic or lipid)}
+atomselect macro glycan {resname NAG BGLN FUC AFUC MAN AMAN BMA BMAN}
+atomselect macro carbon {name "C.*" and not ion}
+atomselect macro hydrogen {name "[0-9]?H.*"}
+atomselect macro nitrogen {name "N.*"}
+atomselect macro oxygen {name "O.*"}
+atomselect macro sulfur {name "S.*" and not ion}
+atomselect macro noh {not hydrogen}
+atomselect macro heme {resname HEM HEME}
+atomselect macro conformationall {altloc ""}
+atomselect macro conformationA {altloc "" or altloc "A"}
+atomselect macro conformationB {altloc "" or altloc "B"}
+atomselect macro conformationC {altloc "" or altloc "C"}
+atomselect macro conformationD {altloc "" or altloc "D"}
+atomselect macro conformationE {altloc "" or altloc "E"}
+atomselect macro conformationF {altloc "" or altloc "F"}
+atomselect macro drude {type DRUD or type LP}
+atomselect macro unparametrized beta<1
+atomselect macro addedmolefacture {occupancy 0.8}
+atomselect macro qwikmd_protein {(not name QWIKMDDELETE and protein)}
+atomselect macro qwikmd_nucleic {(not name QWIKMDDELETE and nucleic)}
+atomselect macro qwikmd_glycan {(not name QWIKMDDELETE and glycan)}
+atomselect macro qwikmd_lipid {(not name QWIKMDDELETE and lipid)}
+atomselect macro qwikmd_hetero {(not name QWIKMDDELETE and hetero and not qwikmd_protein and not qwikmd_lipid and not qwikmd_nucleic and not qwikmd_glycan and not water)}
+# Display settings
+display eyesep       0.065000
+display focallength  2.000000
+display height       6.000000
+display distance     -2.000000
+display projection   Orthographic
+display nearclip set 0.500000
+display farclip  set 10.000000
+display depthcue   on
+display cuestart   0.500000
+display cueend     10.000000
+display cuestart   0.500000
+display cueend     10.000000
+display cuedensity 0.320000
+display cuemode    Exp2
+display shadows off
+display ambientocclusion off
+display aoambient 0.800000
+display aodirect 0.300000
+display dof off
+display dof_fnumber 64.000000
+display dof_focaldist 0.700000
+mol new /tmp/.nmdset0.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /Volumes/MDDATA/download_jun13/ydap-modes.prmtop type parm7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Tube 0.400000 10.000000
+mol color SegName
+mol selection {resid 1 to 70}
+mol material HardPlastic
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol representation Tube 0.400000 10.000000
+mol color Beta
+mol selection {resid 71 to 81}
+mol material HardPlastic
+mol addrep top
+mol selupdate 1 top 0
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0}
+mol clipplane status 5 1 top {0}
+mol rename top {default_name coordinates}
+set viewpoints([molinfo top]) {{{1 0 0 -27.0427} {0 1 0 -30.3732} {0 0 1 -30.5138} {0 0 0 1}} {{0.545918 -0.556011 0.626711 0} {-0.572602 0.298443 0.763555 0} {-0.611591 -0.775711 -0.155452 0} {0 0 0 1}} {{0.0642236 0 0 0} {0 0.0642236 0 0} {0 0 0.0642236 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 0
+mol new
+graphics top color 22
+graphics top materials 1
+graphics top material 9
+graphics top cylinder {38.432999 18.809999 17.729000} {37.480862 22.485159 12.151100} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.480862 22.485159 12.151100} {37.396194 22.811968 11.655090} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.548000 19.285999 18.098000} {37.681213 22.870697 12.740886} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.681213 22.870697 12.740886} {37.601250 23.201397 12.246675} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.359001 19.528000 18.118000} {37.346043 23.192936 13.093086} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.346043 23.192936 13.093086} {37.249596 23.541901 12.614629} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.417999 19.805000 18.172001} {37.293118 23.493446 13.299387} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.293118 23.493446 13.299387} {37.184502 23.849596 12.828897} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.525002 20.065001 18.139999} {37.293304 23.796888 13.303674} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.293304 23.796888 13.303674} {37.174713 24.156200 12.838023} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.585999 20.148001 18.172001} {37.377811 23.870687 13.276389} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.377811 23.870687 13.276389} {37.262157 24.227053 12.807744} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.551998 20.202999 18.075001} {37.200199 23.982929 13.337312} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.200199 23.982929 13.337312} {37.069588 24.348154 12.879545} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.453999 19.391001 18.569000} {37.768646 22.745201 13.371853} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.768646 22.745201 13.371853} {37.702568 23.068581 12.870794} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.151001 19.197001 18.659000} {37.463089 22.471985 13.600866} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.463089 22.471985 13.600866} {37.395035 22.795977 13.100469} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.699001 19.694000 18.874001} {38.171570 22.938320 13.665609} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.171570 22.938320 13.665609} {38.120186 23.254385 13.158202} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.082001 19.915001 18.787001} {38.580120 23.237514 13.389511} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.580120 23.237514 13.389511} {38.532761 23.551060 12.880152} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.276001 20.114000 19.162001} {38.986729 23.261215 13.736913} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.986729 23.261215 13.736913} {38.959087 23.561974 13.218472} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.978001 20.131001 19.537001} {38.784302 23.100872 14.372562} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.784302 23.100872 14.372562} {38.764805 23.399820 13.852707} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.619999 19.815001 19.339001} {38.275024 22.838024 14.282910} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.275024 22.838024 14.282910} {38.239944 23.145397 13.768818} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.257999 20.025999 19.705000} {37.886959 22.934542 15.098659} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.886959 22.934542 15.098659} {37.846188 23.254141 14.592502} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.120998 20.292999 19.730000} {37.668697 23.230162 15.339845} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.668697 23.230162 15.339845} {37.617504 23.562582 14.842978} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.103001 19.921000 20.003000} {37.807087 22.693596 15.543849} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.807087 22.693596 15.543849} {37.773327 23.009911 15.035120} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.737999 20.070999 20.357000} {37.419598 22.716337 16.317955} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.419598 22.716337 16.317955} {37.380116 23.044359 15.817113} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.664001 19.809999 20.603001} {37.416126 22.360788 16.594620} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.416126 22.360788 16.594620} {37.384869 22.682476 16.089109} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.681999 19.410999 20.583000} {37.412663 22.022095 16.406986} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.412663 22.022095 16.406986} {37.379898 22.339714 15.899005} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.660000 19.260000 20.589001} {37.409573 21.884893 16.342968} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.409573 21.884893 16.342968} {37.379509 22.199997 15.833257} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.713001 19.239000 20.568001} {37.407375 21.881271 16.332701} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.407375 21.881271 16.332701} {37.370708 22.198261 15.824594} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.632000 20.695999 20.701000} {37.428082 23.181881 17.029419} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.428082 23.181881 17.029419} {37.400517 23.517912 16.533110} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.206001 20.858000 20.757999} {36.991348 23.346947 17.522367} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.991348 23.346947 17.522367} {36.959843 23.712269 17.047451} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.028000 21.052000 20.906000} {37.918629 23.405512 17.061676} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.918629 23.405512 17.061676} {37.904076 23.718697 16.550106} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.988998 21.659000 21.212999} {37.986446 23.865322 17.659479} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.986446 23.865322 17.659479} {37.986076 24.181810 17.149738} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.449001 21.900999 21.469000} {38.590057 23.966265 17.594011} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.590057 23.966265 17.594011} {38.609322 24.248323 17.064793} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.113998 21.966999 20.804001} {37.833420 24.268381 17.506018} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.833420 24.268381 17.506018} {37.791660 24.610905 17.015167} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.883999 22.396999 21.035999} {37.679569 24.607922 18.090149} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.679569 24.607922 18.090149} {37.646317 24.967527 17.611006} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.466000 21.746000 20.194000} {37.867016 24.231369 16.727362} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.867016 24.231369 16.727362} {37.783581 24.577572 16.244473} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.590000 21.969000 19.735001} {37.699703 24.566807 16.485058} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.699703 24.566807 16.485058} {37.574158 24.933142 16.026760} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.299000 21.799000 19.122999} {38.116367 24.569040 15.496905} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.116367 24.569040 15.496905} {37.965836 24.921623 15.035358} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.417000 21.777000 18.677999} {37.949696 24.757093 15.135211} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.949696 24.757093 15.135211} {37.768417 25.125273 14.697512} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.825001 22.061001 19.104000} {38.691429 24.805487 15.311294} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.691429 24.805487 15.311294} {38.550228 25.147348 14.838861} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {40.240002 22.173000 19.000999} {38.983772 24.915953 15.116300} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.983772 24.915953 15.116300} {38.830528 25.250553 14.642423} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.981998 21.787001 19.573000} {37.033440 24.457891 16.659348} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.033440 24.457891 16.659348} {36.893425 24.852135 16.229269} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.838001 22.118999 19.459999} {36.759628 24.797558 16.897457} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.759628 24.797558 16.897457} {36.592030 25.213850 16.499195} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.604000 21.271000 19.583000} {36.762257 23.986866 16.577864} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.762257 23.986866 16.577864} {36.640179 24.380749 16.142029} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.994999 21.042999 19.459999} {36.128212 23.823772 16.751801} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.128212 23.823772 16.751801} {35.997452 24.243277 16.343245} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.930000 20.395000 19.219000} {36.029480 23.307119 16.235840} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.029480 23.307119 16.235840} {35.902798 23.716791 15.816175} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.075001 20.194000 18.742001} {35.889812 23.272730 15.656625} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.889812 23.272730 15.656625} {35.732380 23.681688 15.246785} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.151001 20.339001 18.476000} {35.787445 23.515347 15.447865} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.787445 23.515347 15.447865} {35.609413 23.930063 15.052500} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.118000 19.851000 18.615999} {35.879658 22.968061 15.374235} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.879658 22.968061 15.374235} {35.720375 23.369003 14.957253} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.299000 21.285000 20.061001} {35.735283 23.887918 17.786194} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.735283 23.887918 17.786194} {35.638714 24.333811 17.396509} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.743999 20.955000 19.896999} {35.147060 23.590115 17.948261} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.147060 23.590115 17.948261} {35.039547 24.064722 17.597277} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.317001 21.853001 20.753000} {36.048172 24.268864 18.487906} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.048172 24.268864 18.487906} {35.999626 24.705130 18.078863} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.696999 22.153000 21.382000} {35.737885 24.376186 19.510944} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.737885 24.376186 19.510944} {35.746326 24.835201 19.124636} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.222000 22.670000 22.056000} {36.606842 24.812948 19.948828} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.606842 24.812948 19.948828} {36.683048 25.237303 19.531557} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.941002 22.771000 21.177000} {34.728394 24.853130 19.867109} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.728394 24.853130 19.867109} {34.676727 25.359102 19.548796} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.178001 23.489000 20.813999} {34.623993 25.606394 19.585880} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.623993 25.606394 19.585880} {34.491543 26.112606 19.292271} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.036999 22.537001 21.414000} {33.983849 24.457119 20.496616} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.983849 24.457119 20.496616} {33.968864 24.998333 20.238037} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.667000 21.679001 21.809000} {34.000732 23.549032 20.860439} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.000732 23.549032 20.860439} {34.095043 24.077478 20.592390} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.624001 21.677000 21.853001} {32.943424 23.331358 21.392008} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.943424 23.331358 21.392008} {33.053139 23.899593 21.233667} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.396999 22.480000 21.509001} {32.406200 24.121580 21.438982} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.406200 24.121580 21.438982} {32.409557 24.721027 21.413414} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.247002 23.094000 21.237000} {32.961819 24.841373 20.823538} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.961819 24.841373 20.823538} {32.867706 25.418024 20.687092} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.171001 24.246000 21.695000} {32.802002 25.828297 21.363310} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.802002 25.828297 21.363310} {32.668491 26.400808 21.243298} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.797001 24.535000 22.181000} {32.156109 26.144894 21.517622} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.156109 26.144894 21.517622} {31.948858 26.665497 21.303101} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.509998 24.923000 21.531000} {33.377632 26.339195 21.630661} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.377632 26.339195 21.630661} {33.321930 26.935131 21.672598} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.474998 26.070000 21.899000} {33.304298 27.320095 22.125408} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.304298 27.320095 22.125408} {33.224400 27.905233 22.231382} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.344002 26.492001 21.649000} {34.245872 27.549419 22.432993} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.245872 27.549419 22.432993} {34.201271 28.030064 22.789352} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.877998 26.757999 21.700001} {34.870335 27.629898 22.525902} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.870335 27.629898 22.525902} {34.866505 28.065487 22.938511} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.765999 26.540001 21.403000} {34.423576 27.702190 22.478308} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.423576 27.702190 22.478308} {34.296749 28.132645 22.876583} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.651001 26.811001 21.653000} {32.911137 28.145935 21.572250} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.911137 28.145935 21.572250} {33.025700 28.733822 21.536688} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.893000 27.045000 21.407000} {32.283974 28.720312 21.652317} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.283974 28.720312 21.652317} {32.418968 29.298759 21.737020} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.764000 27.186001 21.714001} {33.228569 28.207132 21.002069} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.228569 28.207132 21.002069} {33.438358 28.668253 20.680578} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.007000 27.899000 21.513000} {32.868675 28.948242 20.422361} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.868675 28.948242 20.422361} {33.165546 29.309734 20.046606} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.320000 27.808001 21.882000} {33.542496 28.740717 20.001745} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.542496 28.740717 20.001745} {33.844479 28.971115 19.537285} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.189999 28.240999 22.042999} {33.977238 29.295864 19.927650} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.977238 29.295864 19.927650} {34.339104 29.509443 19.499353} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.528999 26.933001 22.256001} {33.852180 27.881559 20.161604} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.852180 27.881559 20.161604} {34.151459 28.096106 19.687893} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.452000 28.667000 21.028999} {31.983521 29.338556 20.003267} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.983521 29.338556 20.003267} {32.222179 29.640091 19.542704} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.801001 29.413000 20.870001} {31.944101 30.106022 19.733364} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.944101 30.106022 19.733364} {32.008228 30.416580 19.224010} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.568001 28.506001 20.823000} {31.249777 28.838200 19.981255} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.249777 28.838200 19.981255} {31.610821 29.014122 19.535500} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.774000 29.259001 21.169001} {28.199217 29.400057 20.228106} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.199217 29.400057 20.228106} {28.444038 29.481272 19.686380} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.527000 32.830002 18.426001} {25.809294 32.823357 18.011005} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.809294 32.823357 18.011005} {26.380136 32.820396 17.826262} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.402000 32.779999 18.125000} {25.783442 32.734001 17.692629} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.783442 32.734001 17.692629} {26.355762 32.714947 17.513500} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.181999 32.631001 17.615000} {25.904331 32.478188 17.115166} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.904331 32.478188 17.115166} {26.478476 32.427246 16.948545} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.084999 32.528999 17.403000} {26.051626 32.308727 16.853081} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.051626 32.308727 16.853081} {26.626127 32.244377 16.692434} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {23.874001 32.384998 16.913000} {26.168737 32.062511 16.299707} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.168737 32.062511 16.299707} {26.743124 31.981789 16.146196} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.209000 32.577999 17.698000} {26.075966 32.398613 17.164434} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.075966 32.398613 17.164434} {26.650423 32.343414 17.000259} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.429001 32.728001 18.208000} {25.954567 32.655426 17.741386} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.954567 32.655426 17.741386} {26.527735 32.628162 17.566074} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {21.214001 33.897999 21.726999} {22.083344 33.428829 21.501104} radius 0.100000 resolution 10 filled 0
+graphics top cone {22.083344 33.428829 21.501104} {22.598070 33.151043 21.367353} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {20.384001 34.347000 21.438999} {21.304962 33.713776 21.114466} radius 0.100000 resolution 10 filled 0
+graphics top cone {21.304962 33.713776 21.114466} {21.779758 33.387318 20.947153} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {20.164000 34.848000 21.622999} {21.113583 34.195866 21.151276} radius 0.100000 resolution 10 filled 0
+graphics top cone {21.113583 34.195866 21.151276} {21.571287 33.881531 20.923901} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {19.891001 34.186001 20.982000} {20.825760 33.428074 20.734127} radius 0.100000 resolution 10 filled 0
+graphics top cone {20.825760 33.428074 20.734127} {21.282228 33.057957 20.613085} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {22.785000 33.410999 24.233999} {23.742249 32.952053 23.974884} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.742249 32.952053 23.974884} {24.267849 32.700054 23.832609} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.358999 36.738998 24.746000} {27.200233 36.005604 24.638674} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.200233 36.005604 24.638674} {27.650417 35.613129 24.581238} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.778999 36.890999 24.657000} {27.708139 35.946018 24.528208} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.708139 35.946018 24.528208} {28.126829 35.520187 24.470173} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.166000 36.844002 25.061001} {27.064985 35.873974 24.885700} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.064985 35.873974 24.885700} {27.469294 35.437717 24.806862} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.132999 36.645000 25.556999} {25.914949 35.862541 25.358702} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.914949 35.862541 25.358702} {26.332420 35.444798 25.252834} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {19.191000 34.400002 29.874001} {19.945862 33.394199 29.189667} radius 0.100000 resolution 10 filled 0
+graphics top cone {19.945862 33.394199 29.189667} {20.262211 32.972687 28.902876} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {18.143999 40.679001 27.167999} {18.650478 40.142368 26.459646} radius 0.100000 resolution 10 filled 0
+graphics top cone {18.650478 40.142368 26.459646} {18.947571 39.827587 26.044136} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {13.145000 35.092999 32.286999} {13.472090 34.167950 32.037594} radius 0.100000 resolution 10 filled 0
+graphics top cone {13.472090 34.167950 32.037594} {13.665944 33.619705 31.889780} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {19.164000 40.749001 39.487999} {19.131290 41.124130 38.549664} radius 0.100000 resolution 10 filled 0
+graphics top cone {19.131290 41.124130 38.549664} {19.111881 41.346745 37.992825} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {19.132000 41.480999 40.307999} {19.084980 41.907238 39.287376} radius 0.100000 resolution 10 filled 0
+graphics top cone {19.084980 41.907238 39.287376} {19.059498 42.138252 38.734222} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {17.527000 31.087000 46.422001} {16.944883 31.887348 46.119442} radius 0.100000 resolution 10 filled 0
+graphics top cone {16.944883 31.887348 46.119442} {16.607382 32.351376 45.944023} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {17.445000 31.117001 46.199001} {16.871059 31.921947 45.875999} radius 0.100000 resolution 10 filled 0
+graphics top cone {16.871059 31.921947 45.875999} {16.539953 32.386322 45.689659} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {17.518000 31.332001 47.092999} {16.913906 32.192142 46.770000} radius 0.100000 resolution 10 filled 0
+graphics top cone {16.913906 32.192142 46.770000} {16.584278 32.661488 46.593750} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.070999 23.940001 29.857000} {28.859924 23.411547 30.891932} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.859924 23.411547 30.891932} {28.752695 23.143082 31.417696} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.743999 23.823000 30.476999} {28.257965 23.311411 31.895752} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.257965 23.311411 31.895752} {28.073925 23.117695 32.432968} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.423000 23.704000 28.920000} {28.239012 23.108595 29.855272} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.239012 23.108595 29.855272} {28.140787 22.790728 30.354584} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.713001 29.708000 29.853001} {34.021690 29.281761 30.711611} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.021690 29.281761 30.711611} {34.205605 29.027813 31.223162} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.229000 28.728001 29.815001} {34.721169 28.390179 30.810579} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.721169 28.390179 30.810579} {34.975555 28.215567 31.325165} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.485001 30.356001 28.785000} {33.758938 29.773371 29.563883} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.758938 29.773371 29.563883} {33.921589 29.427435 30.026346} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.863998 30.009001 27.445000} {34.258553 29.334377 28.280100} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.258553 29.334377 28.280100} {34.465530 28.980480 28.718184} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.043999 30.235001 26.584999} {33.276539 29.082520 27.402723} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.276539 29.082520 27.402723} {33.373966 28.599676 27.745317} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.547001 30.098000 25.464001} {33.744274 28.670561 26.208128} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.744274 28.670561 26.208128} {33.817261 28.142466 26.483427} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.042999 29.708000 26.697001} {32.329716 28.308670 27.819838} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.329716 28.308670 27.819838} {32.424397 27.846563 28.190638} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.542999 29.344000 26.568001} {31.920176 27.688620 27.861538} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.920176 27.688620 27.861538} {32.026203 27.223284 28.225159} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.682999 29.941999 26.403999} {36.208389 29.811165 27.287142} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.208389 29.811165 27.287142} {36.512695 29.735384 27.798664} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.347000 29.974001 26.704000} {37.928097 30.761570 27.719511} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.928097 30.761570 27.719511} {38.175301 31.096615 28.151524} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.455002 29.943001 27.833000} {38.159264 30.760723 28.656857} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.159264 30.760723 28.656857} {38.470493 31.122091 29.020933} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.279999 29.599001 26.534000} {38.252068 30.700373 27.693634} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.252068 30.700373 27.693634} {38.563705 31.053461 28.065403} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.328999 30.028999 24.687000} {37.942291 30.008045 25.672869} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.942291 30.008045 25.672869} {38.259171 29.997219 26.182251} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.953999 29.565001 24.452999} {38.288757 29.195492 25.571749} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.288757 29.195492 25.571749} {38.452740 29.014481 26.119785} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.132000 30.350000 23.877001} {38.196575 30.491568 24.836803} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.196575 30.491568 24.836803} {38.640041 30.550541 25.236628} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.660000 30.240000 22.671000} {38.944847 30.149029 23.756529} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.944847 30.149029 23.756529} {39.402500 30.116625 24.143185} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.806000 30.009001 21.804001} {38.304989 29.980379 22.700430} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.304989 29.980379 22.700430} {38.819866 29.970549 23.008337} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.178001 29.989000 20.672001} {38.901863 29.778437 21.644581} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.901863 29.778437 21.644581} {39.421501 29.714964 21.937752} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.368999 31.252001 22.337000} {39.871567 30.960175 23.478235} radius 0.100000 resolution 10 filled 0
+graphics top cone {39.871567 30.960175 23.478235} {40.343761 30.868467 23.836878} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.022999 32.166000 22.573000} {39.685535 31.917616 23.605377} radius 0.100000 resolution 10 filled 0
+graphics top cone {39.685535 31.917616 23.605377} {40.191200 31.842070 23.919376} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.352001 31.091000 21.736000} {40.871433 30.579411 23.040781} radius 0.100000 resolution 10 filled 0
+graphics top cone {40.871433 30.579411 23.040781} {41.312469 30.430916 23.419512} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {40.091000 31.959000 21.247000} {41.816399 31.234293 22.612087} radius 0.100000 resolution 10 filled 0
+graphics top cone {41.816399 31.234293 22.612087} {42.263317 31.046576 22.965677} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {41.257999 31.493999 20.952000} {42.877094 30.556684 22.494432} radius 0.100000 resolution 10 filled 0
+graphics top cone {42.877094 30.556684 22.494432} {43.277744 30.324741 22.876114} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {41.424000 30.927999 20.399000} {42.995052 29.944687 22.000206} radius 0.100000 resolution 10 filled 0
+graphics top cone {42.995052 29.944687 22.000206} {43.379913 29.703804 22.392452} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.702000 32.477001 20.138000} {41.728931 31.740026 21.429493} radius 0.100000 resolution 10 filled 0
+graphics top cone {41.728931 31.740026 21.429493} {42.212715 31.564129 21.737741} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {40.036999 33.362999 19.856001} {42.275009 32.487015 21.153625} radius 0.100000 resolution 10 filled 0
+graphics top cone {42.275009 32.487015 21.153625} {42.766647 32.294579 21.438684} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.978001 31.944000 19.514999} {41.032532 31.352173 20.734430} radius 0.100000 resolution 10 filled 0
+graphics top cone {41.032532 31.352173 20.734430} {41.533356 31.207905 21.031687} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.508999 32.308998 18.436001} {40.847179 31.721260 19.576214} radius 0.100000 resolution 10 filled 0
+graphics top cone {40.847179 31.721260 19.576214} {41.373215 31.589033 19.832735} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {38.487999 31.282000 17.625000} {40.862976 30.683529 18.788212} radius 0.100000 resolution 10 filled 0
+graphics top cone {40.862976 30.683529 18.788212} {41.388527 30.551094 19.045616} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.181000 30.805000 17.157000} {41.560577 30.134466 18.467915} radius 0.100000 resolution 10 filled 0
+graphics top cone {41.560577 30.134466 18.467915} {42.070797 29.990694 18.748995} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {39.479000 30.284000 16.420000} {41.971012 29.582291 17.820353} radius 0.100000 resolution 10 filled 0
+graphics top cone {41.971012 29.582291 17.820353} {42.479004 29.439249 18.105810} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {40.050999 29.837999 15.978000} {42.566525 29.063717 17.523499} radius 0.100000 resolution 10 filled 0
+graphics top cone {42.566525 29.063717 17.523499} {43.061024 28.911510 17.827311} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {40.436001 29.481001 15.465000} {43.028187 28.683720 17.089205} radius 0.100000 resolution 10 filled 0
+graphics top cone {43.028187 28.683720 17.089205} {43.520187 28.532394 17.397482} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {37.334999 32.966999 18.556000} {39.776417 32.533096 19.472874} radius 0.100000 resolution 10 filled 0
+graphics top cone {39.776417 32.533096 19.472874} {40.330498 32.434620 19.680958} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.960999 33.359001 17.771999} {39.659489 32.999203 18.661274} radius 0.100000 resolution 10 filled 0
+graphics top cone {39.659489 32.999203 18.661274} {40.224827 32.923824 18.847580} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {36.751999 33.095001 19.523001} {38.998184 32.710670 20.277349} radius 0.100000 resolution 10 filled 0
+graphics top cone {38.998184 32.710670 20.277349} {39.559628 32.614605 20.465904} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.629002 33.716000 19.757000} {37.936005 33.474262 20.286987} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.936005 33.474262 20.286987} {38.517746 33.413303 20.420631} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.057999 33.181000 20.402000} {37.070621 32.902462 20.400467} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.070621 32.902462 20.400467} {37.664959 32.820210 20.400015} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.888000 33.430000 20.600000} {35.829582 33.403423 20.282110} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.829582 33.403423 20.282110} {36.421646 33.395321 20.185173} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.414001 34.848999 20.194000} {37.650986 34.420204 21.083786} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.650986 34.420204 21.083786} {38.199863 34.314995 21.302109} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.830002 34.999001 20.834000} {37.764427 34.241585 21.913395} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.764427 34.241585 21.913395} {38.260201 34.047466 22.190033} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.758999 35.652000 19.893999} {37.254082 35.416904 20.875269} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.254082 35.416904 20.875269} {37.810318 35.364494 21.094027} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.296001 35.596001 19.097000} {37.179501 35.747791 19.921368} radius 0.100000 resolution 10 filled 0
+graphics top cone {37.179501 35.747791 19.921368} {37.755650 35.778118 20.086084} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.827999 36.662998 18.915001} {36.906731 36.885319 20.024038} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.906731 36.885319 20.024038} {37.469925 36.925987 20.226915} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.979000 37.366001 19.631001} {36.840523 37.287804 21.033907} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.840523 37.287804 21.033907} {37.379097 37.273087 21.297953} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.536999 36.740002 20.260000} {36.979950 36.343914 21.588802} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.979950 36.343914 21.588802} {37.501759 36.259312 21.872631} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.907001 37.143002 21.224001} {35.957954 36.509262 22.345816} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.957954 36.509262 22.345816} {36.466019 36.352276 22.623711} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.941002 37.994999 21.596001} {35.833008 37.203854 22.990730} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.833008 37.203854 22.990730} {36.290733 37.012451 23.328152} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.334000 36.556999 21.629999} {35.224987 35.898731 22.276003} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.224987 35.898731 22.276003} {35.764263 35.711006 22.460230} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.696999 36.830002 22.556000} {34.213879 35.960659 22.951574} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.213879 35.960659 22.951574} {34.721611 35.669670 23.083982} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.575001 36.821999 22.242001} {33.237534 35.756405 22.202135} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.237534 35.756405 22.202135} {33.742577 35.432697 22.190025} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.895000 37.320999 21.809000} {32.664860 36.322865 21.550394} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.664860 36.322865 21.550394} {33.183296 36.030487 21.474644} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.188000 37.814999 21.514999} {31.908798 36.524529 20.905285} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.908798 36.524529 20.905285} {32.370621 36.178196 20.741652} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.590000 38.325001 21.094999} {31.369572 37.034531 20.256321} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.369572 37.034531 20.256321} {31.823393 36.705437 20.042444} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.077999 38.800999 20.829000} {30.780910 37.343407 19.732738} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.780910 37.343407 19.732738} {31.190386 36.992920 19.469135} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.978001 36.008999 23.684999} {34.283291 35.092640 24.097439} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.283291 35.092640 24.097439} {34.758720 34.758869 24.247663} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.283001 34.987999 23.695000} {34.800388 34.123768 24.146793} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.800388 34.123768 24.146793} {35.305138 33.836288 24.297077} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.849998 36.446999 24.643000} {33.742851 35.430466 25.017109} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.742851 35.430466 25.017109} {34.124485 34.995972 25.177013} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {32.972000 35.799999 25.858999} {33.669621 34.733383 26.225443} radius 0.100000 resolution 10 filled 0
+graphics top cone {33.669621 34.733383 26.225443} {33.985256 34.250797 26.391237} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {33.827000 36.573002 26.726000} {34.449493 35.431763 27.238611} radius 0.100000 resolution 10 filled 0
+graphics top cone {34.449493 35.431763 27.238611} {34.716774 34.941750 27.458712} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {34.488998 36.575001 27.412001} {35.082870 35.471073 27.859703} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.082870 35.471073 27.859703} {35.350567 34.973465 28.061512} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.217999 36.662998 28.013000} {35.783253 35.818699 28.777061} radius 0.100000 resolution 10 filled 0
+graphics top cone {35.783253 35.818699 28.777061} {36.050034 35.420219 29.137672} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.504002 36.664001 28.278000} {36.056984 35.943893 29.164719} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.056984 35.943893 29.164719} {36.318424 35.603443 29.583939} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {35.511002 36.730000 28.250999} {36.062454 35.969006 29.146408} radius 0.100000 resolution 10 filled 0
+graphics top cone {36.062454 35.969006 29.146408} {36.317348 35.617252 29.560289} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.653000 35.594002 26.482000} {32.263226 34.576447 26.674677} radius 0.100000 resolution 10 filled 0
+graphics top cone {32.263226 34.576447 26.674677} {32.567822 34.068535 26.770851} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.847000 36.429001 26.414000} {31.471025 35.418598 26.442110} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.471025 35.418598 26.442110} {31.786217 34.908253 26.456306} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.429001 34.490002 27.105000} {31.950298 33.508221 27.341118} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.950298 33.508221 27.341118} {32.225536 32.989857 27.465784} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.198000 34.110001 27.708000} {30.647749 33.189548 27.845991} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.647749 33.189548 27.845991} {30.908798 32.655285 27.926086} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.384001 33.356998 26.731001} {29.932898 32.339443 26.848036} radius 0.100000 resolution 10 filled 0
+graphics top cone {29.932898 32.339443 26.848036} {30.216305 31.814060 26.908464} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {23.754999 24.077000 30.575001} {23.684471 23.335426 31.398346} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.684471 23.335426 31.398346} {23.646358 22.934690 31.843271} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.954000 23.577999 29.934000} {24.964733 22.810362 30.898403} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.964733 22.810362 30.898403} {24.969957 22.436712 31.367828} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.424000 23.362000 29.646999} {25.495039 22.572386 30.702375} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.495039 22.572386 30.702375} {25.527330 22.213465 31.182096} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.462000 23.395000 29.719999} {25.484999 22.630428 30.715069} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.484999 22.630428 30.715069} {25.495993 22.264923 31.190762} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.278999 40.145000 28.398001} {27.837608 39.399849 28.025936} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.837608 39.399849 28.025936} {28.171818 38.954033 27.803333} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.517000 40.648998 28.211000} {28.100140 39.904873 27.764318} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.100140 39.904873 27.764318} {28.434761 39.477871 27.507999} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.770000 40.509998 28.214001} {28.357738 39.717319 27.906332} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.357738 39.717319 27.906332} {28.698900 39.257195 27.727741} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.715000 42.854000 30.209000} {30.248566 42.125202 29.732164} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.248566 42.125202 29.732164} {30.562004 41.697079 29.452051} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.357000 42.977001 29.546000} {31.146103 42.043774 29.037477} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.146103 42.043774 29.037477} {31.503784 41.620766 28.806978} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.551001 43.689999 28.544001} {31.379967 42.687778 27.968527} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.379967 42.687778 27.968527} {31.729681 42.264973 27.725754} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.311001 43.797001 27.806000} {31.071484 42.678764 27.191685} radius 0.100000 resolution 10 filled 0
+graphics top cone {31.071484 42.678764 27.191685} {31.378683 42.227047 26.943529} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.240999 43.318001 27.318001} {30.972862 42.032639 26.765526} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.972862 42.032639 26.765526} {31.250975 41.544197 26.555582} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {23.700001 42.228001 30.641001} {24.163036 41.748608 29.890738} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.163036 41.748608 29.890738} {24.439875 41.461990 29.442173} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.266001 31.270000 48.160999} {30.575535 32.026394 48.534599} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.575535 32.026394 48.534599} {30.195518 32.442696 48.740219} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.549999 32.046001 48.319000} {30.985260 32.931698 48.653755} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.985260 32.931698 48.653755} {30.677912 33.413719 48.835941} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.340000 32.870998 48.799000} {30.769638 33.967262 49.036652} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.769638 33.967262 49.036652} {30.497692 34.489952 49.149963} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.414000 33.577000 48.799999} {30.901901 34.791321 48.965076} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.901901 34.791321 48.965076} {30.670563 35.339882 49.039650} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.301001 34.159000 48.695999} {30.823143 35.486778 48.782372} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.823143 35.486778 48.782372} {30.620344 36.050278 48.819027} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.302999 29.358000 48.046001} {30.467899 29.736197 48.596432} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.467899 29.736197 48.596432} {29.999311 29.948410 48.905285} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.278000 29.084999 48.990002} {30.348862 29.540880 49.546051} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.348862 29.540880 49.546051} {29.874355 29.773697 49.830025} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.915001 28.823999 47.410999} {30.028280 29.013609 48.005383} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.028280 29.013609 48.005383} {29.537573 29.118540 48.334312} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.423000 27.865000 47.744999} {29.368135 27.914574 48.397648} radius 0.100000 resolution 10 filled 0
+graphics top cone {29.368135 27.914574 48.397648} {28.858305 27.938534 48.713078} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.816000 27.636999 46.840000} {28.744270 27.515875 47.526379} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.744270 27.515875 47.526379} {28.241282 27.459028 47.848511} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {29.111000 27.648001 46.632000} {27.958010 27.551918 47.309177} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.958010 27.551918 47.309177} {27.441973 27.508915 47.612259} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.582001 27.502001 46.313999} {27.326794 27.369631 46.998844} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.326794 27.369631 46.998844} {26.802332 27.314323 47.284992} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.388000 27.297001 46.360001} {27.061754 27.124256 47.047909} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.061754 27.124256 47.047909} {26.532663 27.055342 47.322346} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.320000 27.601000 45.978001} {27.051506 27.480896 46.665909} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.051506 27.480896 46.665909} {26.525888 27.431131 46.950954} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {30.997000 27.059000 48.221001} {29.955423 27.009426 48.911465} radius 0.100000 resolution 10 filled 0
+graphics top cone {29.955423 27.009426 48.911465} {29.455721 26.985641 49.242722} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.194000 26.740999 48.410999} {30.158558 26.663828 49.094311} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.158558 26.663828 49.094311} {29.658739 26.626575 49.424152} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {31.240000 26.740999 48.405998} {30.199446 26.640829 49.133774} radius 0.100000 resolution 10 filled 0
+graphics top cone {30.199446 26.640829 49.133774} {29.709293 26.593643 49.476593} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.552000 33.383999 24.764000} {14.314860 32.200855 24.493641} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.314860 32.200855 24.493641} {14.199799 31.626789 24.362461} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.701000 33.236000 24.549999} {14.348867 31.880112 24.325638} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.348867 31.880112 24.325638} {14.199945 31.306684 24.230751} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.532000 32.948002 24.172001} {14.353634 31.275755 23.978302} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.353634 31.275755 23.978302} {14.290416 30.683058 23.909649} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.211000 32.805000 24.006001} {14.323437 30.986074 23.796968} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.323437 30.986074 23.796968} {14.360214 30.391119 23.728598} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.047000 32.528999 23.642000} {14.326048 30.405985 23.459545} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.326048 30.405985 23.459545} {14.403957 29.813250 23.408606} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.058000 32.952000 24.216999} {14.285940 31.304798 23.961462} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.285940 31.304798 23.961462} {14.367230 30.717356 23.870329} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {14.228000 33.240002 24.593000} {14.282174 31.909155 24.307308} radius 0.100000 resolution 10 filled 0
+graphics top cone {14.282174 31.909155 24.307308} {14.306035 31.322983 24.181475} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.538000 26.514999 25.187000} {24.300859 25.769850 26.016991} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.300859 25.769850 26.016991} {24.176086 25.377781 26.453697} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.267000 25.704000 25.962999} {24.651663 24.718643 26.869652} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.651663 24.718643 26.869652} {24.401123 24.317446 27.238802} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.759001 24.862000 26.198000} {25.480974 24.171022 27.135317} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.480974 24.171022 27.135317} {25.341637 23.824730 27.605066} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {24.698999 26.013000 23.864000} {24.726088 25.403284 24.692968} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.726088 25.403284 24.692968} {24.741875 25.047905 25.176140} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.653999 26.294001 23.250999} {25.878874 25.616312 24.375881} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.878874 25.616312 24.375881} {25.980141 25.311129 24.882446} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.968000 25.913000 21.988001} {26.433081 25.368702 23.149679} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.433081 25.368702 23.149679} {26.637575 25.129375 23.660467} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.657000 26.635000 21.490999} {27.589205 25.925114 23.037521} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.589205 25.925114 23.037521} {27.877476 25.705591 23.515759} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.341000 27.437000 21.289000} {27.702000 26.870726 22.896851} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.702000 26.870726 22.896851} {28.076359 26.714966 23.339109} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.625999 28.046000 20.900000} {28.330444 27.427597 22.734257} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.330444 27.427597 22.734257} {28.726955 27.283735 23.160969} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.027000 27.629000 20.797001} {27.657848 27.327976 22.356808} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.657848 27.327976 22.356808} {28.087645 27.248644 22.767883} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.490999 24.792999 21.655001} {26.587082 24.068293 22.755861} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.587082 24.068293 22.755861} {26.630707 23.739250 23.255690} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.115000 24.457001 22.264000} {26.983654 23.378626 23.444590} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.983654 23.378626 23.444590} {26.934532 22.975332 23.886110} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.232000 24.229000 20.672001} {26.256533 23.740921 21.643559} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.256533 23.740921 21.643559} {26.270065 23.471647 22.179569} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.599001 23.171000 20.152000} {26.240734 22.550552 21.076540} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.240734 22.550552 21.076540} {26.056953 22.232279 21.550804} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.334999 22.775999 19.659000} {27.376398 22.116711 20.623404} radius 0.100000 resolution 10 filled 0
+graphics top cone {27.376398 22.116711 20.623404} {27.397646 21.778309 21.118412} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.042999 22.259001 18.440001} {28.695646 21.791365 19.217348} radius 0.100000 resolution 10 filled 0
+graphics top cone {28.695646 21.791365 19.217348} {29.046047 21.540295 19.634701} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.214001 22.002001 17.893999} {29.033257 21.527719 18.563511} radius 0.100000 resolution 10 filled 0
+graphics top cone {29.033257 21.527719 18.563511} {29.457205 21.282291 18.909969} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {28.455000 21.531000 17.341000} {29.582438 21.069496 17.973204} radius 0.100000 resolution 10 filled 0
+graphics top cone {29.582438 21.069496 17.973204} {30.075302 20.867748 18.249575} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.500999 22.577000 20.521000} {25.636257 21.688747 21.784895} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.636257 21.688747 21.784895} {25.343185 21.387707 22.213243} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.566999 21.944000 20.129999} {25.735989 20.689304 21.533419} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.735989 20.689304 21.533419} {25.493683 20.323463 21.942625} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.334999 22.757999 21.268000} {25.008244 22.057823 22.671930} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.008244 22.057823 22.671930} {24.620800 21.853357 23.081907} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.246000 22.264000 21.746000} {24.418898 21.361948 23.501551} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.418898 21.361948 23.501551} {24.011305 21.160717 23.893183} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.004000 22.431999 22.011999} {23.717951 21.297918 23.411329} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.717951 21.297918 23.411329} {23.246660 21.064117 23.699814} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.933001 22.568001 22.174999} {23.218668 21.625572 23.442984} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.218668 21.625572 23.442984} {22.700109 21.445528 23.685225} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.131001 22.719000 22.239000} {22.944431 21.874701 23.481941} radius 0.100000 resolution 10 filled 0
+graphics top cone {22.944431 21.874701 23.481941} {22.401739 21.730909 23.693621} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.059999 22.846001 22.389000} {22.476324 22.168823 23.509792} radius 0.100000 resolution 10 filled 0
+graphics top cone {22.476324 22.168823 23.509792} {21.912769 22.062332 23.686045} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.790001 22.822001 22.476999} {22.278898 22.215862 23.500689} radius 0.100000 resolution 10 filled 0
+graphics top cone {22.278898 22.215862 23.500689} {21.710632 22.117760 23.666370} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.593000 22.671000 22.414000} {22.551579 21.969290 23.462219} radius 0.100000 resolution 10 filled 0
+graphics top cone {22.551579 21.969290 23.462219} {21.997355 21.841421 23.653233} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {25.663000 22.544001 22.263000} {23.019196 21.674658 23.432856} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.019196 21.674658 23.432856} {22.493753 21.501879 23.665359} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.250000 21.327000 21.804001} {24.504671 20.453058 23.918839} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.504671 20.453058 23.918839} {24.140799 20.270855 24.359747} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.169001 20.733000 22.056999} {24.212595 19.975584 24.115108} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.212595 19.975584 24.115108} {23.813177 19.820950 24.535292} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.348000 21.190001 21.572001} {24.902674 20.209242 24.060436} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.902674 20.209242 24.060436} {24.617435 20.015688 24.551533} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.374001 20.343000 21.573000} {25.026289 19.362753 24.430944} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.026289 19.362753 24.430944} {24.781868 19.184975 24.949263} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.205000 20.225000 21.243000} {25.426119 19.087341 24.225649} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.426119 19.087341 24.225649} {25.283895 18.879606 24.770275} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.021000 19.997000 21.105000} {25.408730 18.706530 23.835688} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.408730 18.706530 23.835688} {25.289522 18.455276 24.367346} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.120001 19.837000 20.976000} {25.745380 18.434603 23.657112} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.745380 18.434603 23.657112} {25.671656 18.158617 24.184746} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.291000 19.856001 20.899000} {26.019617 18.474558 23.680796} radius 0.100000 resolution 10 filled 0
+graphics top cone {26.019617 18.474558 23.680796} {25.967392 18.208704 24.216141} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.017000 19.672001 20.945000} {25.738974 18.146433 23.468189} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.738974 18.146433 23.468189} {25.682648 17.837366 23.979368} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.663000 20.274000 21.695999} {24.950378 19.399546 25.102842} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.950378 19.399546 25.102842} {24.687712 19.265430 25.625355} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.837000 20.603001 21.568001} {25.110580 19.899246 25.311132} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.110580 19.899246 25.311132} {24.862871 19.798271 25.848202} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.708000 19.837999 21.938000} {24.699465 18.863375 25.439903} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.699465 18.863375 25.439903} {24.409285 18.722567 25.945837} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.959999 19.693001 22.076000} {24.586555 18.787371 26.084381} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.586555 18.787371 26.084381} {24.286474 18.672869 26.591175} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.889999 19.421000 22.149000} {24.140915 18.531214 26.249886} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.140915 18.531214 26.249886} {23.812117 18.424793 26.740362} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.870001 19.391001 22.179001} {23.926193 18.480261 26.470007} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.926193 18.480261 26.470007} {23.591848 18.376822 26.957361} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.938000 19.488001 22.198000} {23.988060 18.667210 26.182360} radius 0.100000 resolution 10 filled 0
+graphics top cone {23.988060 18.667210 26.182360} {23.635832 18.569206 26.658102} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.066999 19.361000 22.145000} {24.810081 18.210054 26.395632} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.810081 18.210054 26.395632} {24.536425 18.070499 26.911030} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {26.937000 19.194000 22.194000} {24.850782 17.834534 26.364393} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.850782 17.834534 26.364393} {24.593077 17.666603 26.879549} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.306999 19.263000 22.150000} {24.958599 18.134029 26.700634} radius 0.100000 resolution 10 filled 0
+graphics top cone {24.958599 18.134029 26.700634} {24.689896 18.004852 27.221317} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.443001 18.945999 22.204000} {25.170238 17.596756 27.031126} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.170238 17.596756 27.031126} {24.922453 17.449656 27.557400} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.441000 19.139999 22.148001} {25.258699 17.960945 26.979216} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.258699 17.960945 26.979216} {25.017595 17.830681 27.512976} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.586000 19.098000 22.173000} {25.560600 17.761532 27.111542} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.560600 17.761532 27.111542} {25.339748 17.615803 27.650045} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.541000 19.180000 22.146999} {25.689365 17.660055 27.095253} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.689365 17.660055 27.095253} {25.487284 17.494171 27.635294} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.452999 19.205000 22.125999} {25.745491 17.630882 27.095207} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.745491 17.630882 27.095207} {25.558710 17.458693 27.638773} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.596001 19.221001 22.149000} {25.741301 17.606506 27.085497} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.741301 17.606506 27.085497} {25.539520 17.430859 27.622557} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.627001 18.518000 22.332001} {25.131409 16.960236 27.534769} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.131409 16.960236 27.534769} {24.880886 16.803858 28.057056} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.771999 18.336000 22.407000} {25.163460 16.787436 27.767693} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.163460 16.787436 27.767693} {24.909361 16.636589 28.289879} radius 0.200000 radius2 0.000000 resolution 10
+graphics top cylinder {27.625999 18.365000 22.357000} {25.070612 16.633980 27.698782} radius 0.100000 resolution 10 filled 0
+graphics top cone {25.070612 16.633980 27.698782} {24.822088 16.465631 28.218296} radius 0.200000 radius2 0.000000 resolution 10
+mol delrep 0 top
+mol rename top {default_name mode 1 arrows}
+set viewpoints([molinfo top]) {{{1 0 0 -27.0427} {0 1 0 -30.3732} {0 0 1 -30.5138} {0 0 0 1}} {{0.545918 -0.556011 0.626711 0} {-0.572602 0.298443 0.763555 0} {-0.611591 -0.775711 -0.155452 0} {0 0 0 1}} {{0.0642236 0 0 0} {0 0.0642236 0 0} {0 0 0.0642236 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+set topmol [molinfo top]
+# done with molecule 1
+foreach v $viewplist {
+  molinfo $v set {center_matrix rotate_matrix scale_matrix global_matrix} $viewpoints($v)
+}
+foreach v $fixedlist {
+  molinfo $v set fixed 1
+}
+unset viewplist
+unset fixedlist
+mol top $topmol
+unset topmol
+proc vmdrestoremycolors {} {
+color scale colors RWB {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWR {0.0 0.0 1.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors RGryB {1.0 0.0 0.0} {0.5 0.5 0.5} {0.0 0.0 1.0}
+color scale colors BGryR {0.0 0.0 1.0} {0.5 0.5 0.5} {1.0 0.0 0.0}
+color scale colors RGB {1.0 0.0 0.0} {0.0 1.0 0.0} {0.0 0.0 1.0}
+color scale colors BGR {0.0 0.0 1.0} {0.0 1.0 0.0} {1.0 0.0 0.0}
+color scale colors RWG {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors GWR {0.0 1.0 0.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors GWB {0.0 1.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWG {0.0 0.0 1.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors BlkW {0.0 0.0 0.0} {0.5 0.5 0.5} {1.0 1.0 1.0}
+color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
+color scale colors cividis {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors viridis {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors magma {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors plasma {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors inferno {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L3 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L8 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L9 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L16 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L17 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L18 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L19 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_L20 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_C2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_C4 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_C6 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_C7 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_I1 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_I2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_I3 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_D11 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_D12 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors turbo {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
+  color scale method RWB
+  set colorcmds {
+    {color Display {Background} white}
+    {color Display {BackgroundTop} black}
+    {color Display {BackgroundBot} blue2}
+    {color Display {FPS} white}
+    {color Name {LPA} green}
+    {color Name {LPB} green}
+    {color Type {LP} green}
+    {color Type {DRUD} pink}
+    {color Element {X} cyan}
+    {color Element {Ac} ochre}
+    {color Element {Ag} ochre}
+    {color Element {Al} ochre}
+    {color Element {Am} ochre}
+    {color Element {Ar} ochre}
+    {color Element {As} ochre}
+    {color Element {At} ochre}
+    {color Element {Au} ochre}
+    {color Element {B} ochre}
+    {color Element {Ba} ochre}
+    {color Element {Be} ochre}
+    {color Element {Bh} ochre}
+    {color Element {Bi} ochre}
+    {color Element {Bk} ochre}
+    {color Element {Br} ochre}
+    {color Element {Ca} ochre}
+    {color Element {Cd} ochre}
+    {color Element {Ce} ochre}
+    {color Element {Cf} ochre}
+    {color Element {Cl} ochre}
+    {color Element {Cm} ochre}
+    {color Element {Co} ochre}
+    {color Element {Cr} ochre}
+    {color Element {Cs} ochre}
+    {color Element {Cu} ochre}
+    {color Element {Db} ochre}
+    {color Element {Ds} ochre}
+    {color Element {Dy} ochre}
+    {color Element {Er} ochre}
+    {color Element {Es} ochre}
+    {color Element {Eu} ochre}
+    {color Element {F} ochre}
+    {color Element {Fe} ochre}
+    {color Element {Fm} ochre}
+    {color Element {Fr} ochre}
+    {color Element {Ga} ochre}
+    {color Element {Gd} ochre}
+    {color Element {Ge} ochre}
+    {color Element {He} ochre}
+    {color Element {Hf} ochre}
+    {color Element {Hg} ochre}
+    {color Element {Ho} ochre}
+    {color Element {Hs} ochre}
+    {color Element {I} ochre}
+    {color Element {In} ochre}
+    {color Element {Ir} ochre}
+    {color Element {K} ochre}
+    {color Element {Kr} ochre}
+    {color Element {La} ochre}
+    {color Element {Li} ochre}
+    {color Element {Lr} ochre}
+    {color Element {Lu} ochre}
+    {color Element {Md} ochre}
+    {color Element {Mg} ochre}
+    {color Element {Mn} ochre}
+    {color Element {Mo} ochre}
+    {color Element {Mt} ochre}
+    {color Element {Na} ochre}
+    {color Element {Nb} ochre}
+    {color Element {Nd} ochre}
+    {color Element {Ne} ochre}
+    {color Element {Ni} ochre}
+    {color Element {No} ochre}
+    {color Element {Np} ochre}
+    {color Element {Os} ochre}
+    {color Element {Pa} ochre}
+    {color Element {Pb} ochre}
+    {color Element {Pd} ochre}
+    {color Element {Pm} ochre}
+    {color Element {Po} ochre}
+    {color Element {Pr} ochre}
+    {color Element {Pt} ochre}
+    {color Element {Pu} ochre}
+    {color Element {Ra} ochre}
+    {color Element {Rb} ochre}
+    {color Element {Re} ochre}
+    {color Element {Rf} ochre}
+    {color Element {Rg} ochre}
+    {color Element {Rh} ochre}
+    {color Element {Rn} ochre}
+    {color Element {Ru} ochre}
+    {color Element {Sb} ochre}
+    {color Element {Sc} ochre}
+    {color Element {Se} ochre}
+    {color Element {Sg} ochre}
+    {color Element {Si} ochre}
+    {color Element {Sm} ochre}
+    {color Element {Sn} ochre}
+    {color Element {Sr} ochre}
+    {color Element {Ta} ochre}
+    {color Element {Tb} ochre}
+    {color Element {Tc} ochre}
+    {color Element {Te} ochre}
+    {color Element {Th} ochre}
+    {color Element {Ti} ochre}
+    {color Element {Tl} ochre}
+    {color Element {Tm} ochre}
+    {color Element {U} ochre}
+    {color Element {V} ochre}
+    {color Element {W} ochre}
+    {color Element {Xe} ochre}
+    {color Element {Y} ochre}
+    {color Element {Yb} ochre}
+    {color Element {Zr} ochre}
+    {color Resname {HIE} silver}
+    {color Chain {A} blue}
+    {color Segname {A} blue}
+    {color Conformation {all} blue}
+    {color Molecule {0} blue}
+    {color Molecule {default_name coordinates} blue}
+    {color Molecule {molecule1} red}
+    {color Molecule {default_name mode 1 arrows} red}
+    {color Structure {3_10_Helix} blue}
+    {color Surface {Grasp} gray}
+    {color Labels {Springs} orange}
+    {color Stage {Even} gray}
+    {color Stage {Odd} silver}
+  }
+  foreach colcmd $colorcmds {
+    set val [catch {eval $colcmd}]
+  }
+  color change rgb 0 0.0 0.0 1.0
+  color change rgb 2 0.3499999940395355 0.3499999940395355 0.3499999940395355
+  color change rgb 3 1.0 0.5 0.0
+  color change rgb 4 1.0 1.0 0.0
+  color change rgb 5 0.5 0.5 0.20000000298023224
+  color change rgb 6 0.6000000238418579 0.6000000238418579 0.6000000238418579
+  color change rgb 7 0.0 1.0 0.0
+  color change rgb 9 1.0 0.6000000238418579 0.6000000238418579
+  color change rgb 11 0.6499999761581421 0.0 0.6499999761581421
+  color change rgb 12 0.5 0.8999999761581421 0.4000000059604645
+  color change rgb 13 0.8999999761581421 0.4000000059604645 0.699999988079071
+  color change rgb 14 0.5 0.30000001192092896 0.0
+  color change rgb 15 0.5 0.5 0.75
+  color change rgb 17 0.8799999952316284 0.9700000286102295 0.019999999552965164
+  color change rgb 18 0.550000011920929 0.8999999761581421 0.019999999552965164
+  color change rgb 19 0.0 0.8999999761581421 0.03999999910593033
+  color change rgb 20 0.0 0.8999999761581421 0.5
+  color change rgb 21 0.0 0.8799999952316284 1.0
+  color change rgb 22 0.0 0.7599999904632568 1.0
+  color change rgb 23 0.019999999552965164 0.3799999952316284 0.6700000166893005
+  color change rgb 24 0.009999999776482582 0.03999999910593033 0.9300000071525574
+  color change rgb 25 0.27000001072883606 0.0 0.9800000190734863
+  color change rgb 26 0.44999998807907104 0.0 0.8999999761581421
+  color change rgb 27 0.8999999761581421 0.0 0.8999999761581421
+  color change rgb 28 1.0 0.0 0.6600000262260437
+  color change rgb 29 0.9800000190734863 0.0 0.23000000417232513
+  color change rgb 30 0.8100000023841858 0.0 0.0
+  color change rgb 31 0.8899999856948853 0.3499999940395355 0.0
+  color change rgb 32 0.9599999785423279 0.7200000286102295 0.0
+}
+vmdrestoremycolors
+label textsize 1.0

@@ -1,0 +1,126 @@
+
+# Load topologys, each with a different              #
+# name handler depicted inside []                   #
+#####################################################
+parm ydap_sol.prmtop [ydap]
+
+#####################################################
+# Load trajectories                   		#
+# each with their respective topology.              #
+#####################################################
+trajin ydap_eq3.nc parm [ydap]
+trajin ydap_eq3_2.nc parm [ydap]
+trajin ydap_eq3_3.nc parm [ydap]
+trajin ydap_eq3_4.nc parm [ydap]
+
+#####################################################
+# Move and translate the coordinates so they will   #
+# fit as close as possible to the first frame.      #
+# Only fit residues 1 through 77 (proteins)         #
+# and ignore everything that matches the atom 'H'   #
+# This means that no hydrogen atoms are going to be #
+# part of the fitting.                              #
+#####################################################
+rms first :1-81&!@H=
+
+#####################################################
+# Create an average structure considering all       #
+# the loaded frames and save it as a single frame   #
+# using the AMBER restart format                    #
+#####################################################
+average crdset ydap-average
+
+#####################################################
+# CPPTRAJ works with datasets of multiple formats   #
+# create a coordinate dataset that refers to the    #
+# loaded frames. Call the loaded frames             #
+# 'wdd-trajectories'                            #
+#####################################################
+createcrd ydap-trajectories
+
+#####################################################
+# Run the commands because we need our reference    #
+# structure. With the 'run' command, the            #
+# commands so far will run and will generate our    #
+# average reference structure with the AMBER        #
+# restart format                                    #
+#####################################################
+run
+
+#####################################################
+# Fit our frames, which we named:                   #
+# wdd-trajectories                              #
+# to the previously loaded average structure        #
+# Always use the same mask                          #
+#####################################################
+crdaction ydap-trajectories rms ref ydap-average :1-81&!@H=
+
+#####################################################
+# Calculate coordinate covariance matrix            #
+#####################################################
+crdaction ydap-trajectories matrix covar \
+name ydap-covar :1-81&!@H=
+
+#####################################################
+# Diagonalize coordinate covariance matrix          #
+# Get first 3 eigenvectors                          #
+#####################################################
+runanalysis diagmatrix ydap-covar out ydap-evecs.dat \
+vecs 3 name myEvecs \
+nmwiz nmwizvecs 3 nmwizfile ydap_nmwiz.nmd nmwizmask :1-81&!@H= 
+
+#####################################################
+# Now create separate projections                   #
+# for each set of trajectories                      #
+# More details: pag 610                             #
+#####################################################
+crdaction ydap-trajectories projection YDAP modes myEvecs \
+beg 1 end 3 :1-81&!@H= crdframes 1,48000
+
+# histogram
+hist YDAP:1 bins 100 out ydap-hist.agr norm name YDAP-1
+hist YDAP:2 bins 100 out ydap-hist.agr norm name YDAP-2
+hist YDAP:3 bins 100 out ydap-hist.agr norm name YDAP-3
+
+run
+clear all
+
+
+#####################################################
+## Visualize the fluctuations of the eigenmodes      #
+## Read the file with the eigenvectores              #
+######################################################
+readdata ydap-evecs.dat name Evecs
+#
+#
+######################################################
+## Load a topology                                   #
+## This is necesary to create a new topology         #
+## that will match the read in eigenmodes
+######################################################
+parm ydap_sol.prmtop
+parmstrip !(:1-81&!@H=)
+parmwrite out ydap-modes.prmtop
+#
+######################################################
+## Create a NetCDF trajectory file with the          #
+## modes of motion of the first PCA                  #
+######################################################
+runanalysis modes name Evecs trajout ydap-mode1.nc \
+pcmin -100 pcmax 100 tmode 1 trajoutmask :1-81&!@H= trajoutfmt netcdf
+
+runanalysis modes name Evecs trajout ydap-mode2.nc \
+pcmin -100 pcmax 100 tmode 2 trajoutmask :1-81&!@H= trajoutfmt netcdf
+
+runanalysis modes name Evecs trajout ydap-mode3.nc \
+pcmin -100 pcmax 100 tmode 3 trajoutmask :1-81&!@H= trajoutfmt netcdf
+#
+#
+######################################################
+## Now you can open the files:                       #
+## wdd-modes.prmtop                              #
+## wdd-modes.nc                                  #
+## in Chimera / VMD and watch the movie              #
+## which shows the first mode of motion              #
+######################################################
+

@@ -1,0 +1,18 @@
+parm ygap_sol.prmtop
+trajin ygap_eq3.nc
+trajin ygap_eq3_2.nc
+trajin ygap_eq3_3.nc
+trajin ygap_eq3_4.nc
+reference ygap_sol.pdb
+
+nativecontacts name NC1 :1-70&!@H= :71-81&!@H= \   
+   writecontacts ygap-nn-contacts4.dat \   
+   resout ygap_resout_nn4.dat noimage \   
+   distance 3.0 \
+   byresidue out ygap-all-residues-nn4.dat mindist maxdist \
+   series seriesout ygap-nn-seriesout4.dat \
+   savenonnative seriesnnout ygap-nn-seriesnnout4.dat \
+   nncontactpdb ygap_nn_contacts4.pdb skipnative
+run
+lifetime NC1[NN] out ygap-lifetime-nn.dat
+run

@@ -1,0 +1,7 @@
+parm wkn2_sol.prmtop
+trajin wkn2_eq3.nc
+trajin wkn2_eq3_2.nc
+trajin wkn2_eq3_3.nc
+
+rmsd :1-77&!@H= first out rmsd_wkn2.dat perres perresout perres_wkn2.dat perresmask &!(@H=) perrescenter
+run

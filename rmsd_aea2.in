@@ -1,0 +1,8 @@
+parm aea2_sol.prmtop
+trajin aea2_eq3.nc
+trajin aea2_eq3_2.nc
+trajin aea2_eq3_3.nc
+trajin aea2_eq3_4.nc
+
+rmsd :1-81&!@H= first out rmsd_aea2.dat perres perresout perres_aea2.dat perresmask &!(@H=) perrescenter
+run

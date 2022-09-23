@@ -1,0 +1,9 @@
+parm ygap_sol.prmtop
+trajin ygap_eq3.nc
+trajin ygap_eq3_2.nc
+trajin ygap_eq3_3.nc
+trajin ygap_eq3_4.nc
+reference ygap_sol.pdb
+
+hbond :1-81 out ygap_hbond4.dat avgout ygap_hbondavg4.dat nointramol
+run

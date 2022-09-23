@@ -1,0 +1,9 @@
+parm wkn2_sol.prmtop
+trajin wkn2_eq3.nc
+trajin wkn2_eq3_2.nc
+trajin wkn2_eq3_3.nc
+reference wkn2_sol.pdb
+
+hbond :1-77 out wkn2_hbond4.dat avgout wkn2_hbondavg4.dat nointramol
+run
+
