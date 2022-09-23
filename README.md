@@ -13,7 +13,10 @@ ygap = YGAPCHKFDVK, αCCL-1<br>
 <br>
 ---INPUT FILES--- <br>
 contacts_\*.txt	&emsp;	CPPTRAJ script for intermolecular contacts analysis<br>
+eq3.in 	&emsp; Generic MD equilibrium/production input script for AMBER<br>
+eq3\_mmp\_\*.pbs 	&emsp; Slurm jobs for equilibrium run<br>
 hbond_\*.ptraj	&emsp;	CPPTRAJ script for H-bond analysis<br>
+heat2\_81.in 	&emsp; Generic MD heating input script for AMBER for 81-residue peptide<br>
 MMPBSA.in	&emsp;	Input file to MMPBSA.py, see notes<br>
 pcascript_\*.ptraj	&emsp;CPPTRAJ script for PCA<br>
 process_mdout.perl	&emsp;PERL script to process output MD files<br>
