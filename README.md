@@ -10,8 +10,8 @@ aea2 = AEAPSDKLEVE, αCCL-2 <br>
 wkn2 = WKNFQTI<br>
 ydap = YDAPSLKFQVE, αCCL-3<br>
 ygap = YGAPCHKFDVK, αCCL-1<br>
-<br>
----INPUT FILES--- <br>
+
+## Input files
 contacts_\*.txt	&emsp;	CPPTRAJ script for intermolecular contacts analysis<br>
 eq3.in 	&emsp; Generic MD equilibrium/production input script for AMBER<br>
 eq3\_mmp\_\*.pbs 	&emsp; Slurm jobs for equilibrium run<br>
@@ -27,26 +27,29 @@ rmsd_\*.in	&emsp;	CPPTRAJ script for RMSD analysis<br>
 \*\_sol.pdb	&emsp;	PDB of complex in solution<br>
 \*\_sol.prmtop	&emsp;	Amber PARM of complex in solution<br>
 \*\_sol.crd&emsp;		Amber trajectory of complex in solution<br>
-<br>
----OUTPUT FILES---<br>
---PCA--<br>
+
+## Output files
+### MD
+\*\_eq3_X.outY &emsp; Production MD output file. Order is denoted by X followed by Y. E.g. eq3.out -> eq3_2.out -> eq3_3.outa -> eq3_3.outb
+
+### PCA
 \*\_pca.vmd &emsp;	VMD visualization file of PCA <br>
 \*-modeX.nc&emsp;	NetCDF file with PCA eigenvector X<br>
 \*\_nmwiz.nmd &emsp;	PCA file to be used with NMWiz in VMD<br>
-<br>
---H-BONDS and CONTACTS--<br>
+
+### H-BONDS and CONTACTS
 avgbfactor\_\*.txt	&emsp;	Chimera output of average B-factor per-residue<br>
 \*\_contacts.pyc	&emsp;	Chimera map of intermolecular contacts<br>
 \*\_hbond4.dat	&emsp;	List of # of H-bonds per frame<br>
 \*-all-residues-nn4.dat	&emsp;List of # of intermolecular contacts per frame<br>
 \*-nn-contacts4.dat	&emsp;List of most common intermolecular contacts<br>
-<br>
---MMPBSA--<br>
+
+### MMPBSA
 mmpbsa\_\*\_10frames.out&emsp;	Output of MMPBSA script, see notes<br>
-<br>
---RMSD--<br>
+
+### RMSD
 rmsd\_\*.dat	&emsp;Output from CPPTRAJ rmsd\_\*.in<br>
-<br>
----NOTES---<br>
+
+## Notes
 MMPBSA analysis is performed using the following command (example for AEA2):<br>
 $AMBERHOME/bin/MMPBSA.py -O -i mmpbsa_aea2.in -o mmpbsa_aea2.out -sp aea2_sol.prmtop -cp aea2_cpx.prmtop -rp aea2_rec.prmtop -lp aea2_lig.prmtop -y aea2_eq3_2.nc
