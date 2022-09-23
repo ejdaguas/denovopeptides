@@ -1,0 +1,13 @@
+MD equilibration
+ &cntrl
+  imin=0, irest=1, ig=-1, 
+  ntx=7,		!ASCII formatted restart file
+  nstlim=100000000, dt=0.002,
+  ntb=2, pres0=1.0, 	!const pressure, avg 1.0atm
+  ntp=1, taup=2.0,	!isotropic position scalin with 2ps relaxation time
+  ntc=2, ntf=2,		!SHAKE turned on and H bonds cnstrained 
+  ntt=3, gamma_ln = 1.0,	!Langevin temp dynamics with 1.0 ps-1 collision
+  tempi=300.0, temp0=300.0,
+  cut=8.0, ntr=0,	!no positional restraints
+  ntpr=1000, ntwx=1000, ntwr=10000
+ /

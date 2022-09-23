@@ -1,0 +1,17 @@
+#!/bin/bash -f
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH -t 72:00:00
+#SBATCH --mem 6GB
+#SBATCH -p gpu
+#SBATCH --gres=gpu:1
+#SBATCH --export=ALL
+#SBATCH -o amber-%j.o
+#SBATCH -e amber-%j.err
+
+# replace STARTDIR with your current directory:
+cd /scratch/ejd119/
+
+${AMBERHOME}/bin/pmemd.cuda -O -i eq3.in -o wkn2_eq3_run2.out -p wkn2_sol.prmtop -c wkn2_heat2_mmp.ncrst -r wkn2_eq3_run2.ncrst -x wkn2_eq3_run2.nc -inf wkn2_eq3_run2.mdinfo
+
+# comments here`
