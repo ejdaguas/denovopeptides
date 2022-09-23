@@ -54,5 +54,7 @@ mmpbsa\_\*\_10frames.out&emsp;	Output of MMPBSA script, see notes<br>
 rmsd\_\*.dat	&emsp;Output from CPPTRAJ rmsd\_\*.in<br>
 
 ## Notes
+"mmp" labels in output filenames were placed to indicate that the files were generated using MMPBSA-compatible inputs (i.e. based on the specific sol.prmtop file that was divided into lig.prmtop and rec.prmtop files to prepare for MMPBSA) <br>
+
 MMPBSA analysis is performed using the following command (example for AEA2):<br>
 $AMBERHOME/bin/MMPBSA.py -O -i mmpbsa_aea2.in -o mmpbsa_aea2.out -sp aea2_sol.prmtop -cp aea2_cpx.prmtop -rp aea2_rec.prmtop -lp aea2_lig.prmtop -y aea2_eq3_2.nc
