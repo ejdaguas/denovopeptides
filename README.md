@@ -52,6 +52,7 @@ mmpbsa\_\*\_10frames.out&emsp;	Output of MMPBSA script, see notes<br>
 
 ### RMSD
 rmsd\_\*.dat	&emsp;Output from CPPTRAJ rmsd\_\*.in<br>
+Per-residue RMSD files were too large to include in this repository. <br>
 
 ## Notes
 "mmp" labels in output filenames were placed to indicate that the files were generated using MMPBSA-compatible inputs (i.e. based on the specific sol.prmtop file that was divided into lig.prmtop and rec.prmtop files to prepare for MMPBSA) <br>
